@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./Pages/Shared/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home/Home";
+import Footer from "./Pages/Shared/Footer";
+import SignIn from "./Pages/SignIn/SignIn";
+import Registration from "./Pages/SignIn/Registration";
+import Blogs from "./Pages/Blogs/Blogs";
+import PortFolio from "./Pages/PortFolio/PortFolio";
+
+import Order from "./Pages/Order/Order";
+import RequiredAuth from "./Pages/SignIn/RequiredAuth";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/order/:_id"
+          element={
+            <RequiredAuth>
+              <Order />
+            </RequiredAuth>
+          }
+        />
+
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/portfolio" element={<PortFolio />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/registration" element={<Registration />} />
+      </Routes>
+      <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

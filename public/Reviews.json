@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "6325eb77f95163c412e7598b",
+        "name":"Batman",
+        "img": "https://i.ibb.co/WH0Mw3B/1.webp",
+        "description": "A hacksaw is a fine-toothed saw, originally and mainly made for cutting metal. The equivalent saw for cutting wood is usually called a bow saw.",
+        "ratings": 4
+      },
+      {
+        "_id": "6325eb7790f17a10861d1c39",
+        "name":"Joker Hoon",
+        "img": "https://i.ibb.co/my8YRPj/2.webp",
+        "description": "Aside from industrial uses of hot glue, glue guns are used in small joint attachment, surface lamination, and other product assembly applications in appliances, HVAC units, and mattresses.",
+        "ratings": 5
+      },
+      {
+        "_id": "6325eb77aff6b360ae0c7161",
+        "name":"Cat Woman",
+        "img": "https://i.ibb.co/cQk2HsR/3.webp",
+        "description": "A nail gun, nailgun or nailer is a form of hammer used to drive nails into wood or other materials. It is usually driven by compressed air (pneumatic), electromagnetism.",
+        "ratings": 3.5
+      }
+]

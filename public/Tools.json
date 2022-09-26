@@ -1,0 +1,65 @@
+[
+    {
+      "_id": "6325eb77f95163c412e7598b",
+      "name":"Hacksaw",
+      "img": "https://i.ibb.co/CnqhPP8/hacksaw.jpg",
+      "description": "A hacksaw is a fine-toothed saw, originally and mainly made for cutting metal. The equivalent saw for cutting wood is usually called a bow saw.",
+      "price": 1,
+      "available": 28,
+      "minimum": 28
+    },
+    {
+      "_id": "6325eb7790f17a10861d1c39",
+      "name":"glue gun",
+      "img": "https://i.ibb.co/y4vX4t2/gluegun.jpg",
+      "description": "Aside from industrial uses of hot glue, glue guns are used in small joint attachment, surface lamination, and other product assembly applications in appliances, HVAC units, and mattresses.",
+      "price": 102,
+      "available": 28,
+      "minimum": 28
+    },
+    {
+      "_id": "6325eb77aff6b360ae0c7161",
+      "name":"Nail Gun",
+      "img": "https://i.ibb.co/DRWSn8m/nail-gun.jpg",
+      "description": "A nail gun, nailgun or nailer is a form of hammer used to drive nails into wood or other materials. It is usually driven by compressed air (pneumatic), electromagnetism.",
+      "price": 2,
+      "available": 5,
+      "minimum": 2
+    },
+    {
+      "_id": "6325eb772f887776b37adcac",
+      "name":"CHisel",
+      "img": "https://i.ibb.co/QPq4nKZ/chisel.jpg",
+      "description": "A chisel is a tool with a characteristically shaped cutting edge of blade on its end, for carving or cutting a hard material such as wood, stone, or metal by hand, struck with a mallet, or mechanical power.",
+      "price": 1.5,
+      "available": 11,
+      "minimum": 5
+    },
+    {
+      "_id": "6325eb776d7678c1654f2bc5",
+      "name":"Clamp",
+      "img":"https://i.ibb.co/VC0FwwB/clamp.jpg",
+      "description": "A clamp is a fastening device used to hold or secure objects tightly together to prevent movement or separation through the application of inward pressure.",
+      "price": 3,
+      "available": 17,
+      "minimum": 10
+    },
+    {
+      "_id": "6325eb776b660bf0171407c4",
+      "name":"Drill Bit",
+      "img": "https://i.ibb.co/jDV1xC1/drillbit.jpg",
+      "description": "Drills are cutting tools used to remove material to create holes, almost always of circular cross-section. Drills come in many sizes and shapes and can.",
+      "price": 1,
+      "available": 507,
+      "minimum": 100
+    },
+    {
+      "_id": "6325eb773dbcf7dd19e3d3bd",
+      "name":"Hacksaw",
+      "img": "https://i.ibb.co/6P51RhV/drillmachine.jpg",
+      "description": "A drilling machine, also called a drill press, is a powerful tool used to cut a round hole into or through metal, plastic, wood, or other solid materials through turning and advancing rotary drill bits into a workpiece",
+      "price": 50,
+      "available": 3,
+      "minimum": 2
+    }
+  ]
