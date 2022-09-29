@@ -13,6 +13,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Shared/Loading";
 import { toast } from "react-toastify";
 import PageTitle from "../Shared/PageTitle";
+import useToken from "../../Hooks/useToken";
+import { useEffect } from "react";
 
 const SignIn = () => {
   const [signInWithFacebook, fbUser, fbLoading, fbError] =
@@ -28,12 +30,30 @@ const SignIn = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [token] = useToken(gUser || fbUser || user);
+  let signInError;
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
-  const onSubmit = async (data) => {
-    toast.info("logging in");
-    await signInWithEmailAndPassword(data.email, data.password);
-    toast.success("Successfully sign in");
-  };
+  useEffect( () => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate])
+
+
+
+
+  if (gError || fbError || error || resetError) {
+    return signInError= <p className="text-red-600 text-xs">{gError.message || fbError?.message || error?.message ||resetError?.message} </p>
+
+
+  }
+  if (gLoading || fbLoading || loading || sending) {
+    return <Loading></Loading>;
+  }
+ 
 
   const resetPassword = async () => {
     const email = getValues("email");
@@ -45,30 +65,11 @@ const SignIn = () => {
     }
   };
 
-  let signInError;
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-
-  if (gError || fbError || error || resetError) {
-    return (
-      <div>
-        signInError=
-        <p className="text-red-600 text-xs">
-          {gError.message ||
-            fbError?.message ||
-            error?.message ||
-            resetError?.message}
-        </p>
-      </div>
-    );
-  }
-  if (gLoading || fbLoading || loading || sending) {
-    return <Loading></Loading>;
-  }
-  if (gUser || fbUser || user) {
-    navigate(from, { replace: true });
-  }
+  const onSubmit = async (data) => {
+    toast.info("logging in");
+    await signInWithEmailAndPassword(data.email, data.password);
+    toast.success("Successfully sign in");
+  };
 
   return (
     <div className="flex justify-center items-center my-20">

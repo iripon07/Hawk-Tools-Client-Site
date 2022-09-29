@@ -15,7 +15,7 @@ const Review = ({ review }) => {
           </div>
         </div>
       </div>
-      <h2 className="text-center text-2xl font-semibold text-neutral">
+      <h2 className="text-center text-2xl font-semibold text-primary">
         {name}
       </h2>
       <div className="mx-auto mt-1">
@@ -34,7 +34,7 @@ const Review = ({ review }) => {
         />
       </div>
       <div className="card-body pt-1">
-        <ImQuotesLeft className="text-neutral animate__animated animate__bounceIn animate__infinite"></ImQuotesLeft>{description}<ImQuotesRight className="text-neutral animate__animated animate__bounceIn animate__infinite"></ImQuotesRight>
+        <ImQuotesLeft className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesLeft>{description}<ImQuotesRight className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesRight>
       </div>
     </div>
   );

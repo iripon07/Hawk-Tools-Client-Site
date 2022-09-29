@@ -13,29 +13,23 @@ import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { toast } from "react-toastify";
 import PageTitle from "../Shared/PageTitle";
+import useToken from "../../Hooks/useToken";
 
 const Registration = () => {
   const [signInWithFacebook, fbUser, fbLoading, fbError] =
     useSignInWithFacebook(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth,  {sendEmailVerification: true});
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+  const [token] = useToken(gUser || fbUser || user);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const navigate = useNavigate();
   let signInError;
-  let navigate = useNavigate();
-
-  const onSubmit = async (data) => {
-    await createUserWithEmailAndPassword(data.email, data.password);
-    toast("Successfully account created");
-    await updateProfile({ displayName: data.name });
-
-    navigate("/");
-  };
 
   if (gError || fbError || error || updatingError) {
     return (
@@ -53,9 +47,15 @@ const Registration = () => {
   if (gLoading || fbLoading || loading || updating) {
     return <Loading></Loading>;
   }
-  if (gUser || fbUser || user) {
-    return console.log("logged in", gUser || fbUser || user);
+  if (token) {
+    navigate("/");
   }
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    toast("Successfully account created");
+    await updateProfile({ displayName: data.name });
+  };
 
   return (
     <div className="flex justify-center items-center my-20">

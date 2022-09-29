@@ -11,10 +11,18 @@ import PortFolio from "./Pages/PortFolio/PortFolio";
 
 import Order from "./Pages/Order/Order";
 import RequiredAuth from "./Pages/SignIn/RequiredAuth";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import MyOrder from "./Pages/Dashboard/MyOrder";
+import AddReviews from "./Pages/Dashboard/AddReviews";
+import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import AddProduct from "./Pages/Dashboard/AddProduct";
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,6 +34,15 @@ function App() {
             </RequiredAuth>
           }
         />
+        <Route path="/dashboard" element={<RequiredAuth><Dashboard /></RequiredAuth>}>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="my_order" element={<MyOrder></MyOrder>}></Route>
+          <Route path="add_reviews" element={<AddReviews></AddReviews>}></Route>
+          <Route path="manage_all_products" element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path="make_admin" element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path="manage_products" element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="add_product" element={<AddProduct></AddProduct>}></Route>
+        </Route>
 
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/portfolio" element={<PortFolio />} />

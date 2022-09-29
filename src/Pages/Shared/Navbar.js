@@ -12,8 +12,9 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken');
   };
-console.log('donennnnn',user);
+// console.log('donennnnn',user);
 
   return (
     <div className="max-w-screen-lg mx-auto py-10">
