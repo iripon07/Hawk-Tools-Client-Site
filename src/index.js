@@ -5,8 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+// import { QueryClient, QueryClientProvider } from "react-query";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // <QueryClientProvider client={QueryClient}>
   <HelmetProvider>
     <React.StrictMode>
       <BrowserRouter>
@@ -14,6 +16,7 @@ root.render(
       </BrowserRouter>
     </React.StrictMode>
   </HelmetProvider>
+  // </QueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

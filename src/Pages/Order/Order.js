@@ -69,7 +69,7 @@ const Order = () => {
       address: event.target.address.value
     }
 
-    axios.post(`http://localhost:5000/orders`, orders)
+    axios.post(`https://desolate-reef-03804.herokuapp.com/orders`, orders)
     .then( res => {
       const {data} = res;
       if(data.insertedId){

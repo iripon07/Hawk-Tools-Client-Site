@@ -6,7 +6,7 @@ const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <div className="bg-primary">
+    <div className="bg-primary sticky top-[100vh]">
       <footer className="footer footer-center p-10 rounded">
         <div className="grid grid-flow-col gap-4 text-white font-semibold">
           <NavLink to="/" className="link link-hover">

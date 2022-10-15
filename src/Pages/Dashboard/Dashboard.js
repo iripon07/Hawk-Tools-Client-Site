@@ -1,9 +1,11 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import PageTitle from "../Shared/PageTitle";
 
 const Dashboard = () => {
   return (
     <div class="drawer drawer-mobile">
+      <PageTitle title="Dashboard"></PageTitle>
       <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
       <div className="drawer-content">
         <Outlet></Outlet>
@@ -15,13 +17,13 @@ const Dashboard = () => {
             <Link to="/dashboard">My Profile</Link>
           </li>
           <li>
-            <Link to="/dashboard/my_order">My Order</Link>
+            <Link to="/dashboard/my_order">My Orders</Link>
           </li>
           <li>
             <Link to="/dashboard/add_reviews">Add Review</Link>
           </li>
           <li>
-            <Link to="/dashboard/manage_all_products">Manage All Products</Link>
+            <Link to="/dashboard/manage_all_orders">Manage All Orders</Link>
           </li>
           <li>
             <Link to="/dashboard/make_admin">Make Admin</Link>

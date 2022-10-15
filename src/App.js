@@ -19,37 +19,81 @@ import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import AddProduct from "./Pages/Dashboard/AddProduct";
+import Payment from "./Pages/Dashboard/Payment";
+import DotLoader from "react-spinners/DotLoader";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/order/:_id"
-          element={
-            <RequiredAuth>
-              <Order />
-            </RequiredAuth>
-          }
-        />
-        <Route path="/dashboard" element={<RequiredAuth><Dashboard /></RequiredAuth>}>
-          <Route index element={<MyProfile></MyProfile>}></Route>
-          <Route path="my_order" element={<MyOrder></MyOrder>}></Route>
-          <Route path="add_reviews" element={<AddReviews></AddReviews>}></Route>
-          <Route path="manage_all_products" element={<ManageAllOrders></ManageAllOrders>}></Route>
-          <Route path="make_admin" element={<MakeAdmin></MakeAdmin>}></Route>
-          <Route path="manage_products" element={<ManageProducts></ManageProducts>}></Route>
-          <Route path="add_product" element={<AddProduct></AddProduct>}></Route>
-        </Route>
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+  }, []);
 
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/portfolio" element={<PortFolio />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/registration" element={<Registration />} />
-      </Routes>
-      <Footer></Footer>
+  return (
+    <div className="min-h-screen">
+      {loading ? (
+        <div className=" flex justify-center items-center w-full h-screen">
+          <DotLoader  size={100} color={"#056608"} loading={loading} />
+        </div>
+      ) : (
+        <>
+          <Navbar></Navbar>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/order/:_id"
+              element={
+                <RequiredAuth>
+                  <Order />
+                </RequiredAuth>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <RequiredAuth>
+                  <Dashboard />
+                </RequiredAuth>
+              }
+            >
+              <Route index element={<MyProfile></MyProfile>}></Route>
+              <Route path="my_order" element={<MyOrder></MyOrder>}></Route>
+              <Route
+                path="add_reviews"
+                element={<AddReviews></AddReviews>}
+              ></Route>
+              <Route
+                path="manage_all_orders"
+                element={<ManageAllOrders></ManageAllOrders>}
+              ></Route>
+              <Route
+                path="make_admin"
+                element={<MakeAdmin></MakeAdmin>}
+              ></Route>
+              <Route
+                path="manage_products"
+                element={<ManageProducts></ManageProducts>}
+              ></Route>
+              <Route
+                path="add_product"
+                element={<AddProduct></AddProduct>}
+              ></Route>
+              <Route path="payment/:id" element={<Payment></Payment>}></Route>
+            </Route>
+
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/portfolio" element={<PortFolio />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/registration" element={<Registration />} />
+          </Routes>
+          <Footer></Footer>
+        </>
+      )}
+
       <ToastContainer />
     </div>
   );

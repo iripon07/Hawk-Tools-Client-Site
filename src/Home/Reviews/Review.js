@@ -34,7 +34,7 @@ const Review = ({ review }) => {
         />
       </div>
       <div className="card-body pt-1">
-        <ImQuotesLeft className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesLeft>{description}<ImQuotesRight className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesRight>
+        <h1><ImQuotesLeft className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesLeft><span>{description}</span><ImQuotesRight className="text-primary animate__animated animate__bounceIn animate__infinite"></ImQuotesRight></h1>
       </div>
     </div>
   );

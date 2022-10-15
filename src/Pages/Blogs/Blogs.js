@@ -6,7 +6,7 @@ const Blogs = () => {
     <div className="max-w-screen-lg mx-auto">
       <PageTitle title="Blogs"></PageTitle>
       <div className="p-10">
-        <h1 className="text-3xl font-bold text-neutral py-5">How will you improve the performance of a React Application?</h1>
+        <h1 className="text-3xl font-bold text-primary py-5">How will you improve the performance of a React Application?</h1>
         <p>
           1. Use binding functions in constructors: By adding an arrow function
           in a class, we add it as an object and not as the prototype property
@@ -28,7 +28,7 @@ const Blogs = () => {
         </p>
       </div>
 
-      <div>
+      <div className="p-10">
         <h1 className="text-3xl font-bold text-neutral py-5">5 Types of Application State in React and How They Help in State Management</h1>
         <p></p>
       </div>
